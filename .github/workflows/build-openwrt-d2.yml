@@ -11,6 +11,9 @@
 name: Build OpenWrt D2
 
 on:
+  push:
+    branches:
+      - main
   repository_dispatch:
   workflow_dispatch:
     inputs:
@@ -27,10 +30,10 @@ env:
   DIY_P1_SH: diy-part1.sh
   DIY_P2_SH: diy-part2.sh
   UPLOAD_BIN_DIR: false
-  UPLOAD_FIRMWARE: true
-  UPLOAD_COWTRANSFER: false
-  UPLOAD_WETRANSFER: false
-  UPLOAD_RELEASE: false
+  UPLOAD_FIRMWARE: true #上传固件目录。默认true
+  UPLOAD_COWTRANSFER: true #上传固件到奶牛快传。默认false
+  UPLOAD_WETRANSFER: true #上传固件到 WeTransfer 。默认false
+  UPLOAD_RELEASE: true #上传固件到 releases 。默认false
   TZ: Asia/Shanghai
 
 jobs:
